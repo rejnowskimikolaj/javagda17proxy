@@ -1,12 +1,23 @@
 package movies;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class ChildrenPlatform {
 
-    //proxy jakos pole
+    private ChildrenStreamingServiceProxy streamingService;
+
+
+    public ChildrenPlatform(ChildrenStreamingServiceProxy streamingService) {
+        this.streamingService = streamingService;
+    }
+
     public Movie getRandomMovie(){
-       return null;
+
+        List<Movie> movies = new ArrayList<>();
+        movies.addAll(streamingService.givePegi3Movies());
+        movies.addAll(streamingService.givePegi7Movies());
+        return movies.get(new Random().nextInt(movies.size()));
     }
 }

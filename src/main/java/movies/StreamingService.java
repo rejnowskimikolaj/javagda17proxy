@@ -3,7 +3,7 @@ package movies;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class StreamingService {
+public class StreamingService implements ChildrenStreamingServiceProxy{
 
     private List<Movie> movies;
 
